@@ -27,3 +27,11 @@ def submit_post():
     }
     Post.create_new_post(data)
     return redirect('/market_watch')
+
+@app.route('/post/delete/<int:id>')
+def delete_post(id):
+    if 'user_id' not in session:
+        flash("You can't delete something if you're not logged in")
+        return redirect('/login')
+    Post.delete_post({'id':id})
+    return redirect('/market_watch')

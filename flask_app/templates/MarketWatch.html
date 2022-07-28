@@ -72,9 +72,18 @@
       <div class="d-flex flex-column p-4 gap-3 rounded-3 bg-dark">
         {% for post_info in posts_info %}
         <div class="d-flex gap-5 p-3 bg-light rounded-3">
-          <div class="d-flex flex-column">
-            <h3 class="text-nowrap">{{post_info.username}}</h3>
-            <a href="#" class="btn btn-danger btn-sm"> Delete </a>
+          <div
+            class="d-flex flex-column align-content-start justify-content-center user-post-name-col"
+          >
+            <h5 class="text-nowrap">{{post_info.username}}</h5>
+            {% if session['user_id'] == post_info.user_id %}
+            <a
+              href="/post/delete/{{post_info.post_id}}"
+              class="btn btn-danger btn-sm"
+            >
+              Delete
+            </a>
+            {% endif %}
           </div>
           <p>{{post_info.post}}</p>
         </div>

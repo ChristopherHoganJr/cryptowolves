@@ -27,7 +27,13 @@ class Post:
             discussion_post = {
                 'post_id': single_post['id'],
                 'username': single_post['username'],
-                'post':single_post['post']
+                'post':single_post['post'],
+                'user_id':single_post['users.id']
             }
             discussion_posts.append(discussion_post)
         return discussion_posts
+
+    @classmethod
+    def delete_post(cls,data):
+        query = 'DELETE FROM posts WHERE id=%(id)s;'
+        return connectToMySQL('web3Wolves').query_db(query, data)
