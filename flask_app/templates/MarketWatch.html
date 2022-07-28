@@ -17,7 +17,7 @@
   <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg px-3">
-      <div class="navbar container-fluid">
+      <div class="navbar container">
         <div
           class="navbar-brand user-btns d-flex align-items-center justify-content-end gap-3"
         >
@@ -67,7 +67,7 @@
     <!-- Start Page Body -->
     <div class="marketwatch-section">
       <div class="container">
-        <h1 class="text-center">Bitcoin Wolf Discussion</h1>
+        <h1 class="text-center">Ethereum Wolf Discussion</h1>
         <div class="row w-75 mx-auto">
           <div class="col">
             <canvas id="myChart" width="400px" height="500px"></canvas>
@@ -103,20 +103,7 @@
         </div>
         <div class="col">
           <div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Trust Rank</th>
-                  <th scope="col">Exchange Name</th>
-                  <th scope="col">24h Volume</th>
-                  <th scope="col">URL</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody"></tbody>
-            </table>
-          </div>
-          <div class="">
-            <h5 class="text-center">ADD TO THE WOLF DISCUSSION</h5>
+            <div id="coinData" class="my-3 text-center"></div>
             <form
               action="/post/submit"
               method="post"
@@ -157,6 +144,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/static/js/chart.js"></script>
-    <script src="/static/js/exchange_data.js"></script>
+    <script src="/static/js/coin_data.js"></script>
   </body>
 </html>
