@@ -6,7 +6,11 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')
 def home():
-    return render_template('Landing.html')
+    if 'user_id' not in session:
+        user_in_db = 'user isnt logged in'
+    else:
+        user_in_db = User.get_user_by_session_id({'id':session['user_id']})
+    return render_template('Landing.html', user_in_db=user_in_db)
 
 @app.route('/create_account')
 def create_account():

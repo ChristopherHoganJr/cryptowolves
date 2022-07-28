@@ -17,7 +17,7 @@
   <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg px-3">
-      <div class="navbar container-fluid">
+      <div class="navbar container">
         <div
           class="navbar-brand user-btns d-flex align-items-center justify-content-end gap-3"
         >
@@ -44,6 +44,19 @@
             <li class="nav-item text-end">
               <a href="/market_watch" class="nav-link">Wolf Market Watch</a>
             </li>
+            {% if 'user_id' in session %}
+            <li
+              class="nav-item d-flex gap-3 mt-1 mt-lg-0 justify-content-end ms-3"
+            >
+              <a
+                href="/login"
+                class="nav-link rounded-3 bg-danger text-light px-3"
+              >
+                Logout
+              </a>
+            </li>
+
+            {% else %}
             <li
               class="nav-item d-flex gap-3 mt-1 mt-lg-0 justify-content-end ms-3"
             >
@@ -60,6 +73,7 @@
                 Login
               </a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
