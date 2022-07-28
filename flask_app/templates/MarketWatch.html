@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3 Wolves | Create Account</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-lg-0">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Wolf Vision</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Wolf Market Watch</a>
+            </li>
+          </ul>
+        </div>
+        <div class="user-btns d-flex align-items-center gap-3">
+          <a href="/create_account" class="btn btn-warning"> Sign Up </a>
+          <a href="/login" class="btn btn-success"> Login </a>
+          <a class="" href="/">
+            <img src="/static/imgs/logoicon.png" alt="" />
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Start Page Body -->
+    <div class="marketwatch-section">
+      <div class="container">
+        <div class="row w-75 mx-auto">
+          <div class="col">
+            <canvas id="myChart" width="400px" height="200px"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-50 mx-auto">
+      <h2 class="text-center">ADD TO THE WOLF DISCUSSION</h2>
+      <form action="/post/submit" method="post" class="d-flex gap-3">
+        <textarea name="input-post" cols="60" rows="3" class=""></textarea>
+        <input type="submit" value="Post Comment" class="mt-auto" />
+      </form>
+    </div>
+
+    <div class="container">
+      <h2 class="text-center">WOLF DISCUSSION THREAD</h2>
+      <div class="d-flex flex-column p-4 gap-3 rounded-3 bg-dark">
+        {% for post_info in posts_info %}
+        <div class="d-flex gap-5 p-3 bg-light rounded-3">
+          <div class="d-flex flex-column">
+            <h3 class="text-nowrap">{{post_info.username}}</h3>
+            <a href="#" class="btn btn-danger btn-sm"> Delete </a>
+          </div>
+          <p>{{post_info.post}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <h4>&copy; Christopher Hogan Jr</h4>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/static/js/chart.js"></script>
+  </body>
+</html>

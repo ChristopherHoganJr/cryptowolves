@@ -1,0 +1,21 @@
+.landing-hero-container {
+  min-height: 600px;
+}
+
+.styledHero--row--col-2 {
+  background-image: url("/static/imgs/ethereum-hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.landing-nft-section {
+  min-height: 500px;
+}
+
+.create_account_section {
+  min-height: 800px;
+}
+
+.marketwatch-section {
+}
