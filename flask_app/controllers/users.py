@@ -6,16 +6,18 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')
 def home():
-    if 'user_id' in session:
-        del session['user_id']
     return render_template('Landing.html')
 
 @app.route('/create_account')
 def create_account():
+    if 'user_id' in session:
+        del session['user_id']
     return render_template('CreateAccount.html')
 
 @app.route('/login')
 def login():
+    if 'user_id' in session:
+        del session['user_id']
     return render_template('Login.html')
 
 @app.route('/create_account/register', methods=['post'])

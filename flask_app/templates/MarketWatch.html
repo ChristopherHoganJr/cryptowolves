@@ -16,8 +16,15 @@
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg px-3">
       <div class="navbar container-fluid">
+        <div
+          class="navbar-brand user-btns d-flex align-items-center justify-content-end gap-3"
+        >
+          <a class="" href="/">
+            <img src="/static/imgs/logoicon.png" alt="" />
+          </a>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -30,64 +37,105 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-lg-0">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Wolf Vision</a>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item text-end">
+              <a href="/wolf_vision" class="nav-link">Wolf Vision</a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Wolf Market Watch</a>
+            <li class="nav-item text-end">
+              <a href="/market_watch" class="nav-link">Wolf Market Watch</a>
+            </li>
+            <li
+              class="nav-item d-flex gap-3 mt-1 mt-lg-0 justify-content-end ms-3"
+            >
+              <a
+                href="/create_account"
+                class="nav-link rounded-3 bg-warning px-3"
+              >
+                Sign Up
+              </a>
+              <a
+                href="/login"
+                class="nav-link bg-success rounded-3 text-light px-3"
+              >
+                Login
+              </a>
             </li>
           </ul>
-        </div>
-        <div class="user-btns d-flex align-items-center gap-3">
-          <a href="/create_account" class="btn btn-warning"> Sign Up </a>
-          <a href="/login" class="btn btn-success"> Login </a>
-          <a class="" href="/">
-            <img src="/static/imgs/logoicon.png" alt="" />
-          </a>
         </div>
       </div>
     </nav>
     <!-- Start Page Body -->
     <div class="marketwatch-section">
       <div class="container">
+        <h1 class="text-center">Bitcoin Wolf Discussion</h1>
         <div class="row w-75 mx-auto">
           <div class="col">
-            <canvas id="myChart" width="400px" height="200px"></canvas>
+            <canvas id="myChart" width="400px" height="500px"></canvas>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="w-50 mx-auto">
-      <h2 class="text-center">ADD TO THE WOLF DISCUSSION</h2>
-      <form action="/post/submit" method="post" class="d-flex gap-3">
-        <textarea name="input-post" cols="60" rows="3" class=""></textarea>
-        <input type="submit" value="Post Comment" class="mt-auto" />
-      </form>
-    </div>
-
-    <div class="container">
-      <h2 class="text-center">WOLF DISCUSSION THREAD</h2>
-      <div class="d-flex flex-column p-4 gap-3 rounded-3 bg-dark">
-        {% for post_info in posts_info %}
-        <div class="d-flex gap-5 p-3 bg-light rounded-3">
-          <div
-            class="d-flex flex-column align-content-start justify-content-center user-post-name-col"
-          >
-            <h5 class="text-nowrap">{{post_info.username}}</h5>
-            {% if session['user_id'] == post_info.user_id %}
-            <a
-              href="/post/delete/{{post_info.post_id}}"
-              class="btn btn-danger btn-sm"
-            >
-              Delete
-            </a>
-            {% endif %}
+    <div class="container mt-5">
+      <div class="row">
+        <h2 class="text-center mb-5">WOLF DISCUSSION THREAD</h2>
+        <div class="col">
+          <div class="post-container rounded-3 bg-dark">
+            {% for post_info in posts_info %}
+            <div class="post-box mx-auto d-flex gap-5 p-3 bg-light rounded-3">
+              <div
+                class="d-flex flex-column align-content-start justify-content-center user-post-name-col"
+              >
+                <h5 class="text-nowrap">{{post_info.username}}</h5>
+                {% if session['user_id'] == post_info.user_id %}
+                <a
+                  href="/post/delete/{{post_info.post_id}}"
+                  class="btn btn-danger btn-sm"
+                >
+                  Delete
+                </a>
+                {% endif %}
+              </div>
+              <p>{{post_info.post}}</p>
+            </div>
+            {% endfor %}
           </div>
-          <p>{{post_info.post}}</p>
         </div>
-        {% endfor %}
+        <div class="col">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Trust Rank</th>
+                  <th scope="col">Exchange Name</th>
+                  <th scope="col">24h Volume</th>
+                  <th scope="col">URL</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+          <div class="">
+            <h5 class="text-center">ADD TO THE WOLF DISCUSSION</h5>
+            <form
+              action="/post/submit"
+              method="post"
+              class="d-flex flex-column justify-content-center align-items-center gap-2"
+            >
+              <textarea
+                name="input-post"
+                cols="30"
+                rows="3"
+                class=""
+              ></textarea>
+              <input
+                type="submit"
+                value="Add to the discussion"
+                class="mt-auto"
+              />
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Footer -->
@@ -109,5 +157,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/static/js/chart.js"></script>
+    <script src="/static/js/exchange_data.js"></script>
   </body>
 </html>

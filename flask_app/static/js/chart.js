@@ -23,6 +23,12 @@ function fetchMarketData(element, event) {
             },
           ],
         },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: false, // Hide legend
+          },
+        },
       });
     })
     .catch((err) => {
@@ -32,5 +38,3 @@ function fetchMarketData(element, event) {
 }
 
 fetchMarketData();
-console.log(coinDataKey);
-console.log(coinDataPrice);

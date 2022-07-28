@@ -20,3 +20,18 @@
 .user-post-name-col {
   width: 100px;
 }
+
+.post-box {
+  width: 100%;
+}
+
+.post-box:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.post-container {
+  padding: 15px;
+  height: 700px;
+  overflow: scroll;
+  border: solid 5px black;
+}
