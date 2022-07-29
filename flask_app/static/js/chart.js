@@ -1,9 +1,19 @@
+let adaCoin = document.getElementById("adaCoin");
+let bitCoin = document.getElementById("bitCoin");
+let ethCoin = document.getElementById("ethCoin");
+
+let chartDiv = document.getElementById("chart_div");
+
 let coinDataKey = [];
 let coinDataPrice = [];
 
-function fetchMarketData() {
+function fetchMarketData(coin) {
+  chartDiv.innerHTML = "";
+  chartDiv.innerHTML += `<canvas id="myChart" width="400px" height="500px"></canvas>`;
+  coinDataKey = [];
+  coinDataPrice = [];
   fetch(
-    "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=14&interval=daily"
+    `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=14&interval=daily`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -18,7 +28,7 @@ function fetchMarketData() {
           labels: coinDataKey,
           datasets: [
             {
-              label: "Ethereum",
+              label: `${coin}`,
               data: coinDataPrice,
             },
           ],
@@ -37,4 +47,4 @@ function fetchMarketData() {
     });
 }
 
-fetchMarketData();
+fetchMarketData("bitcoin");

@@ -40,3 +40,7 @@
 .discussionForm {
   max-width: 600px;
 }
+
+.coinSelectors:hover {
+  cursor: pointer;
+}

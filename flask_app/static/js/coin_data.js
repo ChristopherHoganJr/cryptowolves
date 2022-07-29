@@ -12,36 +12,36 @@ if (month < 10) {
   month = `0${month}`;
 }
 
-function fetchCoinData() {
+function fetchCoinData(coin) {
+  coinData.innerHTML = "";
   fetch(
-    `https://api.coingecko.com/api/v3/coins/ethereum/history?date=${day}-${month}-${year}`
+    `https://api.coingecko.com/api/v3/coins/${coin}/history?date=${day}-${month}-${year}`
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       coinData.innerHTML += `
         <table>
           <tr>
-            <td class="text-end pe-3">Symbol:</td>
-            <td class="text-start">${data.symbol}</td>
+            <td class="text-end pe-3"><h2>Symbol:</h2></td>
+            <td class="text-start"><h2>${data.symbol.toUpperCase()}</h2></td>
           </tr>
           <tr>
-            <td class="text-end pe-3">Current Price:</td>
-            <td class="text-start">$${data.market_data.current_price.usd.toFixed(
+            <td class="text-end pe-3"><h4>Today's Average Price:</h4></td>
+            <td class="text-start"><h4>$${data.market_data.current_price.usd.toFixed(
               2
-            )}</td>
+            )}</h4></td>
           </tr>
           <tr>
-            <td class="text-end pe-3">Market Cap:</td>
-            <td class="text-start">$${data.market_data.market_cap.usd.toFixed(
+            <td class="text-end pe-3"><h4>MC as of ${month}-${day}-${year}:</h4></td>
+            <td class="text-start"><h4>$${data.market_data.market_cap.usd.toFixed(
               2
-            )}</td>
+            )}</h4></td>
           </tr>
           <tr>
-            <td class="text-end pe-3">Total Volume:</td>
-            <td class="text-start">$${data.market_data.total_volume.usd.toFixed(
+            <td class="text-end pe-3"><h4>24H Total Volume:</h4></td>
+            <td class="text-start"><h4>$${data.market_data.total_volume.usd.toFixed(
               2
-            )}</td>
+            )}</h4></td>
           </tr>
         </table>
       `;
@@ -52,4 +52,4 @@ function fetchCoinData() {
     });
 }
 
-fetchCoinData();
+fetchCoinData("bitcoin");

@@ -81,12 +81,34 @@
     <!-- Start Page Body -->
     <div class="marketwatch-section">
       <div class="container">
-        <h1 class="text-center">Ethereum Wolf Discussion</h1>
+        <h1 class="text-center">Wolf Discussion</h1>
+        <div class="row my-3">
+          <div class="col d-flex justify-content-center gap-5">
+            <img
+              onCLick="fetchMarketData('bitcoin');fetchCoinData('bitcoin')"
+              class="coinSelectors"
+              src="/static/imgs/bitcoinIcon.png"
+              alt=""
+            />
+            <img
+              onCLick="fetchMarketData('cardano');fetchCoinData('cardano')"
+              class="coinSelectors"
+              src="/static/imgs/adaIcon.png"
+              alt=""
+            />
+            <img
+              onCLick="fetchMarketData('ethereum');fetchCoinData('ethereum')"
+              class="coinSelectors"
+              src="/static/imgs/ethIcon.png"
+              alt=""
+            />
+          </div>
+        </div>
         <div class="row w-75 mx-auto d-flex flex-column">
           <div class="col d-flex justify-content-center">
             <div id="coinData" class="my-3"></div>
           </div>
-          <div class="col">
+          <div id="chart_div" class="col">
             <canvas id="myChart" width="400px" height="500px"></canvas>
           </div>
         </div>
