@@ -44,3 +44,7 @@
 .coinSelectors:hover {
   cursor: pointer;
 }
+
+.vision-container {
+  min-height: 85vh;
+}

@@ -12,6 +12,14 @@ def home():
         user_in_db = User.get_user_by_session_id({'id':session['user_id']})
     return render_template('Landing.html', user_in_db=user_in_db)
 
+@app.route('/wolf_vision')
+def wolf_vision():
+    if 'user_id' not in session:
+        user_in_db = 'user isnt logged in'
+    else:
+        user_in_db = User.get_user_by_session_id({'id':session['user_id']})
+    return render_template('WolfVision.html', user_in_db=user_in_db)
+
 @app.route('/create_account')
 def create_account():
     if 'user_id' in session:
