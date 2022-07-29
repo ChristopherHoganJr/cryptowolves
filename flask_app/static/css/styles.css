@@ -48,3 +48,8 @@
 .vision-container {
   min-height: 85vh;
 }
+
+.landing-market {
+  max-width: 600px;
+  height: auto;
+}
