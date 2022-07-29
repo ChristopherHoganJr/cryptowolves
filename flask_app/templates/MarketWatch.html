@@ -44,36 +44,16 @@
             <li class="nav-item text-end">
               <a href="/market_watch" class="nav-link">Wolf Market Watch</a>
             </li>
-            {% if session['user_id'] == posts_info[0].user_id %}
             <li
               class="nav-item d-flex gap-3 mt-1 mt-lg-0 justify-content-end ms-3"
             >
               <a
                 href="/login"
-                class="nav-link rounded-3 bg-danger text-light px-3"
+                class="nav-link rounded-3 text-center bg-danger text-light px-3"
               >
                 Logout
               </a>
             </li>
-
-            {% else %}
-            <li
-              class="nav-item d-flex gap-3 mt-1 mt-lg-0 justify-content-end ms-3"
-            >
-              <a
-                href="/create_account"
-                class="nav-link rounded-3 bg-warning px-3"
-              >
-                Sign Up
-              </a>
-              <a
-                href="/login"
-                class="nav-link bg-success rounded-3 text-light px-3"
-              >
-                Login
-              </a>
-            </li>
-            {% endif %}
           </ul>
         </div>
       </div>
