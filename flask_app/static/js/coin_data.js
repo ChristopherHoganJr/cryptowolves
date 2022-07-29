@@ -20,12 +20,30 @@ function fetchCoinData() {
     .then((data) => {
       console.log(data);
       coinData.innerHTML += `
-        <h2>${data.name}</h2>
-        <img src="${data.image.small}" />
-        <p>Symbol: ${data.symbol}</p>
-        <p>Current Price: $${data.market_data.current_price.usd}</p>
-        <p>Market Cap: $${data.market_data.market_cap.usd}</p>
-        <p>Total Volume: $${data.market_data.total_volume.usd}</p>
+        <table>
+          <tr>
+            <td class="text-end pe-3">Symbol:</td>
+            <td class="text-start">${data.symbol}</td>
+          </tr>
+          <tr>
+            <td class="text-end pe-3">Current Price:</td>
+            <td class="text-start">$${data.market_data.current_price.usd.toFixed(
+              2
+            )}</td>
+          </tr>
+          <tr>
+            <td class="text-end pe-3">Market Cap:</td>
+            <td class="text-start">$${data.market_data.market_cap.usd.toFixed(
+              2
+            )}</td>
+          </tr>
+          <tr>
+            <td class="text-end pe-3">Total Volume:</td>
+            <td class="text-start">$${data.market_data.total_volume.usd.toFixed(
+              2
+            )}</td>
+          </tr>
+        </table>
       `;
     })
     .catch((err) => {

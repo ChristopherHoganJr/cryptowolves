@@ -30,8 +30,13 @@
 }
 
 .post-container {
-  padding: 15px;
+  padding: 5px;
   height: 700px;
-  overflow: scroll;
+  max-width: 600px;
+  overflow-y: scroll;
   border: solid 5px black;
+}
+
+.discussionForm {
+  max-width: 600px;
 }

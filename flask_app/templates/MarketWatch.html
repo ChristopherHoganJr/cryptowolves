@@ -82,7 +82,10 @@
     <div class="marketwatch-section">
       <div class="container">
         <h1 class="text-center">Ethereum Wolf Discussion</h1>
-        <div class="row w-75 mx-auto">
+        <div class="row w-75 mx-auto d-flex flex-column">
+          <div class="col d-flex justify-content-center">
+            <div id="coinData" class="my-3"></div>
+          </div>
           <div class="col">
             <canvas id="myChart" width="400px" height="500px"></canvas>
           </div>
@@ -91,10 +94,29 @@
     </div>
 
     <div class="container mt-5">
-      <div class="row">
-        <h2 class="text-center mb-5">WOLF DISCUSSION THREAD</h2>
+      <h2 class="text-center mb-5">WOLF DISCUSSION THREAD</h2>
+      <div class="row d-flex flex-column gap-2">
         <div class="col">
-          <div class="post-container rounded-3 bg-dark">
+          <form
+            action="/post/submit"
+            method="post"
+            class="d-flex discussionForm flex justify-content-center align-items-center gap-2 mx-auto"
+          >
+            <textarea
+              name="input-post"
+              cols="30"
+              rows="3"
+              class="w-100"
+            ></textarea>
+            <input
+              type="submit"
+              value="Add to the discussion"
+              class="mt-auto"
+            />
+          </form>
+        </div>
+        <div class="col">
+          <div class="post-container mx-auto rounded-3">
             {% for post_info in posts_info %}
             <div class="post-box mx-auto d-flex gap-5 p-3 bg-light rounded-3">
               <div
@@ -113,28 +135,6 @@
               <p>{{post_info.post}}</p>
             </div>
             {% endfor %}
-          </div>
-        </div>
-        <div class="col">
-          <div>
-            <div id="coinData" class="my-3 text-center"></div>
-            <form
-              action="/post/submit"
-              method="post"
-              class="d-flex flex-column justify-content-center align-items-center gap-2"
-            >
-              <textarea
-                name="input-post"
-                cols="30"
-                rows="3"
-                class=""
-              ></textarea>
-              <input
-                type="submit"
-                value="Add to the discussion"
-                class="mt-auto"
-              />
-            </form>
           </div>
         </div>
       </div>

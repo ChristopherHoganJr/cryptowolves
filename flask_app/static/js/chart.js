@@ -3,7 +3,7 @@ let coinDataPrice = [];
 
 function fetchMarketData() {
   fetch(
-    "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=60&interval=daily"
+    "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=14&interval=daily"
   )
     .then((res) => res.json())
     .then((data) => {
@@ -18,7 +18,7 @@ function fetchMarketData() {
           labels: coinDataKey,
           datasets: [
             {
-              label: "Bitcoin",
+              label: "Ethereum",
               data: coinDataPrice,
             },
           ],
