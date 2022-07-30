@@ -18,12 +18,12 @@ class User:
     @classmethod
     def create_new_user(cls, data):
         query = 'INSERT INTO users (email, username, password, ofAge, legalToTrade, mailingList, created_at, updated_at) VALUES (%(email)s,%(username)s,%(password)s,%(ofAge)s,%(legalToTrade)s,%(mailingList)s, NOW(), NOW());'
-        return connectToMySQL('web3Wolves').query_db(query, data)
+        return connectToMySQL('cryptowolves').query_db(query, data)
 
     @classmethod
     def get_user_by_email(cls, data):
         query = 'SELECT * FROM users WHERE email = %(email)s;'
-        result = connectToMySQL('web3Wolves').query_db(query, data)
+        result = connectToMySQL('cryptowolves').query_db(query, data)
         if len(result) < 1:
             return False
         return cls(result[0])
@@ -31,7 +31,7 @@ class User:
     @classmethod
     def get_user_by_username(cls, data):
         query = 'SELECT * FROM users WHERE username = %(username)s;'
-        result = connectToMySQL('web3Wolves').query_db(query, data)
+        result = connectToMySQL('cryptowolves').query_db(query, data)
         if len(result) < 1:
             return False
         return cls(result[0])
@@ -39,7 +39,7 @@ class User:
     @classmethod
     def get_user_by_session_id(cls, data):
         query = 'SELECT * FROM users WHERE id = %(id)s;'
-        results = connectToMySQL('web3Wolves').query_db(query, data)
+        results = connectToMySQL('cryptowolves').query_db(query, data)
         return cls(results[0])
 
     @staticmethod

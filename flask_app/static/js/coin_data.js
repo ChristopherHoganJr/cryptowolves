@@ -20,7 +20,7 @@ function fetchCoinData(coin) {
     .then((res) => res.json())
     .then((data) => {
       coinData.innerHTML += `
-        <table>
+        <table class="table">
           <tr>
             <td class="text-end pe-3"><h2>Symbol:</h2></td>
             <td class="text-start"><h2>${data.symbol.toUpperCase()}</h2></td>

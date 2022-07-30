@@ -68,7 +68,7 @@ def register_account():
     # Push user id to session id
     user_id = User.create_new_user(data)
     session['user_id'] = user_id
-    return redirect('/market_watch')
+    return redirect('/user/profile/create')
 
 @app.route('/login/authenticate', methods=['post'])
 def login_user():

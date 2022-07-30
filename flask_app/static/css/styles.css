@@ -53,3 +53,19 @@
   max-width: 600px;
   height: auto;
 }
+
+.userProfileSection {
+  min-height: 85vh;
+}
+
+.allUsersPage {
+  min-height: 85vh;
+}
+
+.editUserProfile {
+  min-height: 85vh;
+}
+
+.landingImage {
+  min-height: 300px;
+}

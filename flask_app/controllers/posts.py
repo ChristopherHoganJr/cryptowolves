@@ -10,7 +10,7 @@ def market_watch():
     user_in_db = User.get_user_by_session_id({'id':session['user_id']})
     posts_info = Post.get_all_posts()
     session['user_id'] = user_in_db.id
-    return render_template('MarketWatch.html', posts_info = posts_info)
+    return render_template('MarketWatch.html', posts_info = posts_info, user_in_db=user_in_db)
 
 @app.route('/post/submit', methods=['post'])
 def submit_post():

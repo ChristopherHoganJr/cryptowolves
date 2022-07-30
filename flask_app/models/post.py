@@ -15,12 +15,12 @@ class Post:
     @classmethod
     def create_new_post(cls, data):
         query = 'INSERT INTO posts (post, category, created_at, updated_at, users_id) VALUES (%(post)s,%(category)s,NOW(),NOW(),%(users_id)s);'
-        return connectToMySQL('web3Wolves').query_db(query, data)
+        return connectToMySQL('cryptowolves').query_db(query, data)
 
     @classmethod
     def get_all_posts(cls):
         query = 'SELECT * FROM posts JOIN users ON posts.users_id = users.id ORDER BY posts.id DESC'
-        results = connectToMySQL('web3Wolves').query_db(query)
+        results = connectToMySQL('cryptowolves').query_db(query)
         discussion_posts = []
         for single_post in results:
             print(single_post['id'])
@@ -36,4 +36,4 @@ class Post:
     @classmethod
     def delete_post(cls,data):
         query = 'DELETE FROM posts WHERE id=%(id)s;'
-        return connectToMySQL('web3Wolves').query_db(query, data)
+        return connectToMySQL('cryptowolves').query_db(query, data)
