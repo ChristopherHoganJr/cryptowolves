@@ -14,6 +14,7 @@
     <li>CoinGecko Market APIs</li>
     <li>HTML5</li>
     <li>CSS3</li>
+    <li>Bootstrap 5</li>
     <li>Balsamiq</li>
     <li>Trello</li>
 </ul>
