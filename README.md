@@ -1,5 +1,5 @@
 <h1 align:"center">Crypto Wolves</h1>
-<p>A Flask cryptocurrency social media project</p>
+<p>A Flask cryptocurrency social media project where users can sign up, make posts, and see other profiles.</p>
 <p>All technologies/tools used:</p>
 <ul>
     <li>Python3</li>
