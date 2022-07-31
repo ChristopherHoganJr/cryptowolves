@@ -4,13 +4,16 @@
 <ul>
     <li>Python3</li>
     <li>Flask</li>
-    <li>Chartjs</li>
+    <li>Jinja2</li>
     <li>B-crypt</li>
+    <li>Regex</li>
     <li>MySQL</li>
+    <li>MySQLWorkbench</li>
+    <li>Javascript</li>
+    <li>Chartjs</li>
     <li>CoinGecko Market APIs</li>
     <li>HTML5</li>
     <li>CSS3</li>
-    <li>MySQLWorkbench</li>
     <li>Balsamiq</li>
     <li>Trello</li>
 </ul>
