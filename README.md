@@ -38,7 +38,7 @@ The project focuses on ingesting third-party market data, processing it server-s
 ## Architecture Overview
 
 CryptoWolves follows a traditional Flask MVC-style architecture with server-rendered views and a relational database backend.
-
+```
 Client (Browser)
    ↓ HTTP requests
 Flask Application
@@ -48,7 +48,7 @@ Flask Application
    └─ Session-based authentication
         ↓
 MySQL Database
-
+```
 ---
 
 ## What I Learned
